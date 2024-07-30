@@ -1,0 +1,61 @@
+.App {
+  text-align: center;
+  font-family: Arial, sans-serif;
+}
+
+.App-header {
+  background-color: #f0f0f0;
+  min-height: 100vh;
+  color: #333;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.search-container {
+  position: relative;
+  width: 80%;
+  max-width: 600px;
+  margin-bottom: 20px;
+}
+
+.search-input {
+  width: 100%;
+  padding: 10px 20px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+}
+
+.search-icon {
+  position: absolute;
+  top: 50%;
+  right: 15px;
+  transform: translateY(-50%);
+  color: #888;
+}
+
+.react-data-table {
+  width: 80%;
+  max-width: 800px;
+  margin: 0 auto;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.react-data-table .rdt_TableHead {
+  background-color: #4caf50;
+  color: white;
+  font-weight: bold;
+}
+
+.react-data-table .rdt_TableCell,
+.react-data-table .rdt_TableRow {
+  border-bottom: 1px solid #ddd;
+}
+
+.react-data-table .rdt_TableRow:nth-child(even) {
+  background-color: #f9f9f9;
+}
