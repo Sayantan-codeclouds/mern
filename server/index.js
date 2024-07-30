@@ -10,11 +10,21 @@ const app = express();
 const PORT = process.env.PORT || 5000;
 
 // Middleware
-app.use(
-  cors({
-    origin: "https://mern-front-2w0x.onrender.com/",
-  })
-);
+// List of allowed origins (add your frontend URL here without trailing slash)
+const allowedOrigins = ["https://mern-front-2w0x.onrender.com"];
+
+const corsOptions = {
+  origin: function (origin, callback) {
+    if (allowedOrigins.indexOf(origin) !== -1 || !origin) {
+      callback(null, true);
+    } else {
+      callback(new Error("Not allowed by CORS"));
+    }
+  },
+};
+
+app.use(cors(corsOptions));
+
 app.use(express.json());
 
 // MongoDB connection
