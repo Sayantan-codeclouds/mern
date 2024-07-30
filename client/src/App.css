@@ -1,32 +1,49 @@
-.App {
-  text-align: center;
-  font-family: Arial, sans-serif;
-}
-
-.App-header {
-  background-color: #f0f0f0;
-  min-height: 100vh;
+/* General Styling */
+body {
+  margin: 0;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f0f2f5;
   color: #333;
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.App {
+  width: 100%;
+  max-width: 600px;
   padding: 20px;
 }
 
+.App-header {
+  background-color: #ffffff;
+  padding: 20px 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+h1 {
+  font-size: 28px;
+  margin-bottom: 20px;
+  color: #333;
+  font-weight: bold;
+}
+
+/* Search Bar */
 .search-container {
   position: relative;
-  width: 80%;
-  max-width: 600px;
   margin-bottom: 20px;
 }
 
 .search-input {
   width: 100%;
-  padding: 10px 20px;
-  border-radius: 4px;
+  padding: 10px 15px;
   border: 1px solid #ccc;
+  border-radius: 5px;
   font-size: 16px;
+  box-sizing: border-box;
 }
 
 .search-icon {
@@ -37,25 +54,72 @@
   color: #888;
 }
 
+/* Table Styling */
 .react-data-table {
-  width: 80%;
-  max-width: 800px;
-  margin: 0 auto;
-  border-radius: 4px;
+  width: 100%;
+  border-radius: 5px;
   overflow: hidden;
+  border-collapse: separate;
+  border-spacing: 0;
 }
 
 .react-data-table .rdt_TableHead {
-  background-color: #4caf50;
+  background-color: #007bff;
   color: white;
   font-weight: bold;
+  text-align: left;
 }
 
-.react-data-table .rdt_TableCell,
+.react-data-table .rdt_TableHeadRow th {
+  padding: 10px;
+  border-bottom: 2px solid #e2e2e2;
+}
+
 .react-data-table .rdt_TableRow {
-  border-bottom: 1px solid #ddd;
+  border-bottom: 1px solid #e2e2e2;
+}
+
+.react-data-table .rdt_TableRow:hover {
+  background-color: #f9f9f9;
+}
+
+.react-data-table .rdt_TableCell {
+  padding: 10px;
 }
 
 .react-data-table .rdt_TableRow:nth-child(even) {
-  background-color: #f9f9f9;
+  background-color: #f7f7f7;
+}
+
+.react-data-table .rdt_Pagination {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.react-data-table .rdt_Pagination ul {
+  display: flex;
+  gap: 5px;
+}
+
+.react-data-table .rdt_Pagination ul li {
+  margin: 0;
+}
+
+.react-data-table .rdt_Pagination ul li button {
+  border: 1px solid #ddd;
+  background: #007bff;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.react-data-table .rdt_Pagination ul li button:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+}
+
+.react-data-table .rdt_Pagination ul li.rdt_Pagination-active button {
+  background: #0056b3;
 }
