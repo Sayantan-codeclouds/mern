@@ -8,7 +8,7 @@ const productRoutes = require("./routes/productRoutes");
 dotenv.config();
 
 const app = express();
-const PORT = 5003;
+const PORT = process.env.PORT || 5003;
 
 // Middleware
 // List of allowed origins (add your frontend URL here without trailing slash)
