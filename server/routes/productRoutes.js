@@ -25,9 +25,11 @@ router.get("/products", async (req, res) => {
 });
 
 // Get a specific product by ID
-router.get("/products/:id", async (req, res) => {
+router.get("/products/:product_id", async (req, res) => {
   try {
-    const product = await Product.findById(req.params.id).populate("category");
+    const product = await Product.findOne({
+      product_id: req.params.product_id,
+    }).populate("category");
     if (!product) return res.status(404).json({ message: "Product not found" });
     res.json(product);
   } catch (error) {
@@ -48,7 +50,7 @@ router.get("/categories/:categoryId/products", async (req, res) => {
 });
 
 // Update a product by ID
-router.put("/products/:id", async (req, res) => {
+router.put("/products/:product_id", async (req, res) => {
   try {
     const product = await Product.findByIdAndUpdate(req.params.id, req.body, {
       new: true,
@@ -61,7 +63,7 @@ router.put("/products/:id", async (req, res) => {
 });
 
 // Delete a product by ID
-router.delete("/products/:id", async (req, res) => {
+router.delete("/products/:product_id", async (req, res) => {
   try {
     const product = await Product.findByIdAndDelete(req.params.id);
     if (!product) return res.status(404).json({ message: "Product not found" });
