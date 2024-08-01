@@ -3,11 +3,11 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import "./Product.css";
-
 const apiUrl = import.meta.env.VITE_API_URL;
 
 const ProductDetails = () => {
   const { product_id } = useParams(); // Retrieve product ID from URL
+  console.log("Product ID from URL:", product_id); // Debugging line
   const [product, setProduct] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);

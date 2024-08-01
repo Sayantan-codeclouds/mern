@@ -34,7 +34,7 @@ const Shop = () => {
             </p>
             <p className="product-price">${product.price}</p>
             <Link
-              to={`/product/${product.productproduct_id}`}
+              to={`/products/${product.product_id}`}
               className="view-details-button"
             >
               View Details
