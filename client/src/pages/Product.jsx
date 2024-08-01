@@ -2,7 +2,8 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
-import "./ProductDetails.css";
+import "./Product.css";
+
 const apiUrl = import.meta.env.VITE_API_URL;
 
 const ProductDetails = () => {
