@@ -12,7 +12,10 @@ const PORT = 5003;
 
 // Middleware
 // List of allowed origins (add your frontend URL here without trailing slash)
-const allowedOrigins = ["https://mern-front-2w0x.onrender.com"];
+const allowedOrigins = [
+  "https://mern-front-2w0x.onrender.com",
+  "http://localhost:5003/",
+];
 
 const corsOptions = {
   origin: function (origin, callback) {
@@ -25,6 +28,7 @@ const corsOptions = {
 };
 
 app.use(cors(corsOptions));
+app.use(cors());
 
 app.use(express.json());
 
