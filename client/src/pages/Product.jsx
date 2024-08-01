@@ -6,34 +6,46 @@ import "./ProductDetails.css";
 const apiUrl = import.meta.env.VITE_API_URL;
 
 const ProductDetails = () => {
-  const { productId } = useParams();
+  const { product_id } = useParams(); // Retrieve product ID from URL
   const [product, setProduct] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
-    axios
-      .get(`${apiUrl}api/products/${productId}`)
-      .then((response) => setProduct(response.data))
-      .catch((error) =>
-        console.error("Error fetching product details:", error)
-      );
-  }, [productId]);
+    const fetchProduct = async () => {
+      try {
+        const response = await axios.get(`${apiUrl}api/products/${product_id}`);
+        setProduct(response.data);
+        setLoading(false);
+      } catch (err) {
+        setError(err.message);
+        setLoading(false);
+      }
+    };
 
-  if (!product) {
-    return <div>Loading...</div>;
-  }
+    fetchProduct();
+  }, [product_id]);
+
+  if (loading) return <p>Loading...</p>;
+  if (error) return <p>Error: {error}</p>;
 
   return (
     <div className="product-details-container">
-      <img
-        src={product.image}
-        alt={product.name}
-        className="product-details-image"
-      />
-      <div className="product-details-info">
-        <h1 className="product-details-name">{product.name}</h1>
-        <p className="product-details-description">{product.description}</p>
-        <p className="product-details-price">${product.price}</p>
-      </div>
+      {product ? (
+        <>
+          <h1>{product.name}</h1>
+          <img
+            src={product.image}
+            alt={product.name}
+            className="product-image"
+          />
+          <p className="product-price">${product.price}</p>
+          <p className="product-description">{product.description}</p>
+          <p className="product-category">Category: {product.category.name}</p>
+        </>
+      ) : (
+        <p>Product not found</p>
+      )}
     </div>
   );
 };
