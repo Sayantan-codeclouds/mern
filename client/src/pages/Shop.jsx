@@ -22,7 +22,7 @@ const Shop = () => {
       <h1>Shop</h1>
       <div className="products-grid">
         {products.map((product) => (
-          <div key={product._id} className="product-card">
+          <div key={product.product_id} className="product-card">
             <img
               src={product.image}
               alt={product.name}
@@ -34,7 +34,7 @@ const Shop = () => {
             </p>
             <p className="product-price">${product.price}</p>
             <Link
-              to={`/product/${product.product_id}`}
+              to={`/product/${product.productproduct_id}`}
               className="view-details-button"
             >
               View Details
