@@ -45,14 +45,6 @@ mongoose
 // Serve static files from the React app
 app.use(express.static(path.join(__dirname, "client/build")));
 
-// API routes
-// app.use('/api', apiRoutes);
-
-// The "catchall" handler: for any request that doesn't match one above, send back React's index.html file.
-app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "client/build", "index.html"));
-});
-
 // Routes
 app.get("/", (req, res) => {
   res.send("API is running...");
@@ -60,6 +52,12 @@ app.get("/", (req, res) => {
 app.use("/api/users", userRoutes);
 // Add this line
 app.use("/api", productRoutes);
+
+// The "catchall" handler: for any request that doesn't match one above, send back React's index.html file.
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "client/build", "index.html"));
+});
+
 // Start server
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
