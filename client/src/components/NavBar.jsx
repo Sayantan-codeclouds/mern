@@ -18,6 +18,9 @@ function NavBar() {
         <li>
           <Link to="/shop">Shop</Link>
         </li>
+        <li>
+          <Link to="/checkout">Checkout</Link>
+        </li>
       </ul>
     </nav>
   );
