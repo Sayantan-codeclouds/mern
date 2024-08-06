@@ -1,0 +1,43 @@
+.checkout-container {
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.checkout-list {
+  list-style: none;
+  padding: 0;
+}
+
+.checkout-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.checkout-image {
+  max-width: 100px;
+  height: auto;
+  border-radius: 8px;
+  margin-right: 20px;
+}
+
+.checkout-details {
+  text-align: left;
+}
+
+.checkout-details h2 {
+  margin: 0;
+  font-size: 24px;
+}
+
+.checkout-details p {
+  margin: 0;
+  font-size: 18px;
+  color: #007bff;
+}
