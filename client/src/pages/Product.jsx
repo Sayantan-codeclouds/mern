@@ -1,13 +1,15 @@
 // eslint-disable-next-line no-unused-vars
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
+import { useCart } from "../context/CartContext";
 import "./Product.css";
 const apiUrl = import.meta.env.VITE_API_URL;
 
 const ProductDetails = () => {
   const { product_id } = useParams(); // Retrieve product ID from URL
-  console.log("Product ID from URL:", product_id); // Debugging line
+  const navigate = useNavigate();
+  const { addToCart, clearCart } = useCart();
   const [product, setProduct] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -29,12 +31,15 @@ const ProductDetails = () => {
 
   const handleBuyNow = () => {
     // Implement Buy Now functionality
-    alert("Buy Now functionality not yet implemented");
+    clearCart();
+    addToCart(product);
+    navigate("/checkout");
   };
 
   const handleAddToCart = () => {
     // Implement Add to Cart functionality
-    alert("Add to Cart functionality not yet implemented");
+    addToCart(product);
+    alert("Product added to cart");
   };
 
   if (loading) return <p>Loading...</p>;
