@@ -5,7 +5,7 @@ import Home from "./pages/Home";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
 import Shop from "./pages/Shop";
-import ProductDetails from "./pages/ProductDetails";
+import ProductDetails from "./pages/Product";
 import Checkout from "./pages/Checkout"; // Import your Checkout page
 import NavBar from "./components/NavBar"; // Your NavBar component
 import { CartProvider } from "./context/CartContext"; // Import the CartProvider
