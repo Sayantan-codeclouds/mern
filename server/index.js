@@ -47,6 +47,7 @@ app.use(express.static(path.join(__dirname, "client/build")));
 
 // Routes
 app.get("/", (req, res) => {
+  res.header("Access-Control-Allow-Origin", "*");
   res.send("API is running...");
 });
 app.use("/api/users", userRoutes);
