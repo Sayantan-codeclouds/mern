@@ -1,14 +1,14 @@
 // eslint-disable-next-line no-unused-vars
 import React from "react";
 import { useCart } from "../context/CartContext";
-import "./Checkout.css";
+import "./Cart.css";
 
-const Checkout = () => {
+const Cart = () => {
   const { cart } = useCart();
 
   return (
     <div className="checkout-container">
-      <h1>Checkout</h1>
+      <h1>Cart</h1>
       {cart.length > 0 ? (
         <ul className="checkout-list">
           {cart.map((product, index) => (
@@ -32,4 +32,4 @@ const Checkout = () => {
   );
 };
 
-export default Checkout;
+export default Cart;
