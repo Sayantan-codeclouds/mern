@@ -15,7 +15,6 @@ const SignUp = () => {
   const handleSignUp = async (e) => {
     e.preventDefault();
 
-    // Basic validation
     if (password !== confirmPassword) {
       setError("Passwords do not match");
       return;
@@ -27,20 +26,21 @@ const SignUp = () => {
     }
 
     try {
-      // Make a POST request to the backend API to create a new user
       const response = await axios.post("/api/users/signup", {
         name,
         email,
         password,
       });
 
-      // Save user data in localStorage or state management solution
-      localStorage.setItem("user", JSON.stringify(response.data));
+      // Save JWT token in localStorage
+      localStorage.setItem("token", response.data.token);
 
       // Redirect to profile or dashboard page after sign-up
-      navigate("/profile"); // or navigate('/dashboard');
+      navigate("/profile");
     } catch (err) {
-      setError("Sign up failed. Please try again.");
+      setError(
+        err.response?.data?.message || "Sign up failed. Please try again."
+      );
     }
   };
 
