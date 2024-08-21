@@ -1,6 +1,6 @@
 // eslint-disable-next-line no-unused-vars
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+//import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import "./SignUp.css";
 
@@ -10,7 +10,9 @@ const SignUp = () => {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [error, setError] = useState("");
-  const navigate = useNavigate();
+  //const navigate = useNavigate();
+
+  const apiUrl = import.meta.env.VITE_API_URL;
 
   const handleSignUp = async (e) => {
     e.preventDefault();
@@ -27,7 +29,7 @@ const SignUp = () => {
 
     try {
       // Make the POST request to the backend
-      const response = await axios.post("/api/users/signup", {
+      const response = await axios.post(`${apiUrl}api/users/signup`, {
         name,
         email,
         password,
