@@ -5,6 +5,7 @@ import Home from "./pages/Home";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
 import Shop from "./pages/Shop";
+import SignUp from "./pages/SignUp";
 import ProductDetails from "./pages/Product";
 import Cart from "./pages/Cart"; // Import your Checkout page
 import NavBar from "./components/NavBar"; // Your NavBar component
@@ -22,6 +23,7 @@ function App() {
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/shop" element={<Shop />} />
+          <Route path="/signup" element={<SignUp />} />
           <Route path="/products/:product_id" element={<ProductDetails />} />
           <Route path="/cart" element={<Cart />} /> {/* Add Checkout route */}
         </Routes>
