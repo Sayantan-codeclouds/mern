@@ -6,7 +6,7 @@ import About from "./pages/About";
 import Contact from "./pages/Contact";
 import Shop from "./pages/Shop";
 import Login from "./pages/Login";
-import SignUp from "./pages/Signup";
+import SignUp from "./pages/sign";
 import ProductDetails from "./pages/Product";
 import Cart from "./pages/Cart"; // Import your Checkout page
 import NavBar from "./components/NavBar"; // Your NavBar component
