@@ -26,18 +26,25 @@ const SignUp = () => {
     }
 
     try {
+      // Make the POST request to the backend
       const response = await axios.post("/api/users/signup", {
         name,
         email,
         password,
       });
 
-      // Save JWT token in localStorage
-      localStorage.setItem("token", response.data.token);
-
-      // Redirect to profile or dashboard page after sign-up
-      navigate("/profile");
+      // Check if the token is in the response
+      const token = response.data.token;
+      if (token) {
+        // Save the token in localStorage
+        localStorage.setItem("token", token);
+        // Redirect to the profile or dashboard page
+        //navigate("/profile");
+      } else {
+        setError("Failed to sign up. Please try again.");
+      }
     } catch (err) {
+      console.error("Error in signup:", err);
       setError(
         err.response?.data?.message || "Sign up failed. Please try again."
       );
